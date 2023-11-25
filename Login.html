@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CND -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>會員登入</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="請輸入帳號: " v-model="member.account">
+        <br>
+        <input type="text" placeholder="請輸入密碼: " v-model="member.password">
+        <br>
+        <button type="button" @click="Login();">送出</button>
+    </div>
+</body>
+</html>
+
+<script>
+    Vue.createApp({
+        data(){
+            return{
+                member: {
+                    account: "",
+                    password: ""
+                }
+            }
+        },
+
+        methods:{
+            Login(){
+                if((this.member.account == "Kenny123@gmail.com") && (this.member.password == "123456")){
+                    alert("登入成功~~");
+                }
+                else if((this.member.account == "") && (this.member.password == "")){
+                    alert("登入失敗，請確認您的帳號、密碼是否正確!!");
+                }
+                else{
+                    alert("登入失敗，請確認您的帳號、密碼是否正確!!");
+                }
+            }
+        }
+    }).mount("#app")
+</script>
